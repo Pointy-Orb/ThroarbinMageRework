@@ -1,0 +1,160 @@
+Items: {
+	GemHood: {
+		DisplayName: "{0} Hood"
+		Tooltip:
+			'''
+			{$CommonItemTooltip.IncreasesMaxManaBy}
+			{$CommonItemTooltip.PercentReducedManaCost@1}
+			'''
+		SetBonus:
+			'''
+			{$CommonItemTooltip.IncreasesMaxManaBy}
+			{$CommonItemTooltip.PercentIncreasedMagicCritChance@1}
+			Using the {2} can inflict {3} on enemies
+			'''
+		SetBonusNoDebuff:
+			'''
+			{$CommonItemTooltip.IncreasesMaxManaBy}
+			{$CommonItemTooltip.PercentIncreasedMagicCritChance@1}
+			'''
+	}
+
+	JewelersStaff: {
+		DisplayName: Jeweler's Staff
+		TooltipSimple: Fires three magical bolts
+		TooltipComplicated:
+			'''
+			Fires a topaz bolt, an emerald bolt, and a diamond bolt, all doing the same damage.
+			Works with corresponding gem robe set bonuses
+			'''
+	}
+
+	AristrocratsStaff: {
+		DisplayName: Aristrocrat's Staff
+		TooltipSimple: Fires three magical bolts
+		TooltipComplicated:
+			'''
+			Fires an amber bolt, a sapphire bolt, and a ruby bolt, all doing the same damage.
+			Works with corresponding gem robe set bonuses
+			'''
+	}
+
+	FlowerEmblem: {
+		DisplayName: Flower Emblem
+		Tooltip:
+			'''
+			{$ItemTooltip.CelestialMagnet}
+			{$CommonItemTooltip.PercentIncreasedMagicDamage}
+			{$ItemTooltip.ManaFlower}
+			'''
+	}
+
+	MagicCloak: {
+		DisplayName: Magic Cloak
+		TooltipSimple:
+			'''
+			Grants a bonus to magic damage that scales with how much mana is left
+			Reaches bonus minimum at half mana
+			'''
+		TooltipComplicated:
+			'''
+			Grants a 5% bonus to magic damage when mana is at or above 75% max mana
+			Grants a 3% bonus to magic damage when mana is at or above 50% max mana
+			Grants a 1% bonus to magic damage otherwise
+			'''
+	}
+
+	ManaKnuckles: {
+		DisplayName: Mana Knuckles
+		Tooltip:
+			'''
+			{$ItemTooltip.ManaFlower}
+			{$ItemTooltip.FleshKnuckles}
+			'''
+	}
+
+	ManaField: {
+		DisplayName: Mana Field
+		Tooltip: Gives back {0}% of mana used when hitting an enemy in close range
+	}
+
+	StarBand: {
+		DisplayName: Star Band
+		Tooltip:
+			'''
+			{$ItemTooltip.BandofStarpower}
+			Enemies have a chance to drop small mana stars when hit
+			'''
+	}
+
+	StarBandStar: {
+		DisplayName: Mini Star
+		Tooltip: ""
+	}
+
+	MagicGlove: {
+		DisplayName: Magic Glove
+		Tooltip: Increases magic projectile speed by {0}%
+	}
+
+	WitchsGlove: {
+		DisplayName: Witch's Glove
+		Tooltip: Magic weapons will act in fast-motion
+	}
+}
+
+Configs: {
+	ThroarbinMageReworkConfig: {
+		DisplayName: Throarbin Mage Rework Config
+
+		StaffHandling: {
+			Label: Staff Handling
+			Tooltip: ""
+		}
+	}
+
+	StaffHandling: {
+		Tooltip: ""
+		BuffWeakerOres.Label: Buff Weaker Ores
+		EachStaffWithEachOre.Label: Each Staff With Each Ore
+	}
+
+	ClientConfig: {
+		DisplayName: UI Config
+
+		ShowMiniManaBar: {
+			Label: Show Mini Mana Bar
+			Tooltip: When enabled, displays a smaller mana bar over your character's head when your mana is less than full
+		}
+
+		ComplicatedTooltips: {
+			Label: Complicated Tooltips
+			Tooltip: Changes some of the tooltips to be more verbose but provide more information
+		}
+	}
+
+	ServerConfig: {
+		DisplayName: Gameplay Config
+
+		AccessoryBalance: {
+			Label: Accessory Balance
+			Tooltip: ""
+		}
+	}
+
+	AccessoryBalance: {
+		Tooltip:
+			'''
+			After testing some of the new accessories I felt that they were too weak when statted exactly as Throarbin said.
+			Setting to 'Tweaked' gives a minor buff to some accessories
+			Setting to Faithful will stat them exactly as they were stated in Throarbin's video
+			'''
+		Tweaked.Label: Tweaked
+		Faithful.Label: Faithful
+	}
+}
+
+Projectiles: {
+	JewelersStaffProjectile.DisplayName: Jewelers Staff Projectile
+	AristrocratsStaffProjectile.DisplayName: Aristrocrats Staff Projectile
+}

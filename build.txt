@@ -1,0 +1,4 @@
+displayName = Throarbin-Style Mage Changes
+author = Pointy Orb
+version = 1.0
+includeSource = true
