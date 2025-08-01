@@ -101,6 +101,15 @@ Items: {
 		DisplayName: Witch's Glove
 		Tooltip: Magic weapons will act in fast-motion
 	}
+
+	StarMagnet: {
+		DisplayName: Star Magnet
+		Tooltip:
+			'''
+			{$Mods.ThroarbinMageRework.Items.StarBand.Tooltip}
+			{$ItemTooltip.CelestialMagnet}
+			'''
+	}
 }
 
 Configs: {

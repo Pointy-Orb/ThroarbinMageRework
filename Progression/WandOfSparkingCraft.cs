@@ -28,7 +28,39 @@ public class WandOfSparkingCraft : ModSystem
             {
                 if (item.type == ItemID.WandofSparking)
                 {
-                    item.SetDefaults(ItemID.Aglet);
+                    var newItem = ItemID.Aglet;
+                    var rand = WorldGen.genRand.Next(9);
+                    switch (rand)
+                    {
+                        case 0:
+                            newItem = ItemID.Spear;
+                            break;
+                        case 1:
+                            newItem = ItemID.Blowpipe;
+                            break;
+                        case 2:
+                            newItem = ItemID.WoodenBoomerang;
+                            break;
+                        case 3:
+                            newItem = ItemID.Aglet;
+                            break;
+                        case 4:
+                            newItem = ItemID.ClimbingClaws;
+                            break;
+                        case 5:
+                            newItem = ItemID.Umbrella;
+                            break;
+                        case 6:
+                            newItem = ItemID.CordageGuide;
+                            break;
+                        case 7:
+                            newItem = ItemID.Radar;
+                            break;
+                        case 8:
+                            newItem = ItemID.PortableStool;
+                            break;
+                    }
+                    item.SetDefaults(newItem);
                     item.Prefix(-1);
                 }
             }
