@@ -70,11 +70,8 @@ public class MagicProjectileVelocity : GlobalProjectile
         {
             return;
         }
-        if (player.GetModPlayer<MagicGlovePlayer>().magicGlove == MagicGloveTier.MagicGlove)
-        {
-            projectile.velocity *= ModContent.GetInstance<Configs.ServerConfig>().AccessoryBalance == Configs.AccessoryBalance.Faithful ? 1.1f : 1.25f;
-        }
-        else if (player.GetModPlayer<MagicGlovePlayer>().magicGlove == MagicGloveTier.WitchsGlove)
+        projectile.velocity *= ModContent.GetInstance<Configs.ServerConfig>().AccessoryBalance == Configs.AccessoryBalance.Faithful ? 1.1f : 1.25f;
+        if (player.GetModPlayer<MagicGlovePlayer>().magicGlove == MagicGloveTier.WitchsGlove)
         {
             projectile.extraUpdates += 1;
         }

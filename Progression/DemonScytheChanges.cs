@@ -70,8 +70,6 @@ public class NerfFireFlower : GlobalItem
             return;
         }
         entity.damage = 24;
-        entity.useTime = 24;
-        entity.useAnimation = 24;
     }
 
     private void FlowerDefaults(Item entity)
@@ -85,7 +83,5 @@ public class NerfFireFlower : GlobalItem
             return;
         }
         entity.damage = 28;
-        entity.useTime = 24;
-        entity.useAnimation = 24;
     }
 }

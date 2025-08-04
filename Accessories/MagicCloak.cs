@@ -1,4 +1,5 @@
 using Terraria;
+using System;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ID;
@@ -9,6 +10,9 @@ namespace ThroarbinMageRework.Accessories;
 [AutoloadEquip(EquipType.Front, EquipType.Back)]
 public class MagicCloak : ModItem
 {
+    public const float buffValue = 0.15f;
+    public const float buffMinimum = 0.02f;
+
     public override void SetDefaults()
     {
         Item.width = 26;
@@ -33,7 +37,20 @@ public class MagicCloak : ModItem
             .Register();
     }
 
-    public override LocalizedText Tooltip => this.GetLocalization(ModContent.GetInstance<Configs.ClientConfig>().ComplicatedTooltips && ModContent.GetInstance<Configs.ServerConfig>().AccessoryBalance == Configs.AccessoryBalance.Faithful ? "TooltipComplicated" : "TooltipSimple");
+    public override LocalizedText Tooltip
+    {
+        get
+        {
+            var faithful = ModContent.GetInstance<Configs.ServerConfig>().AccessoryBalance == Configs.AccessoryBalance.Faithful;
+            var complicatedTooltips = ModContent.GetInstance<Configs.ClientConfig>().ComplicatedTooltips && faithful;
+            var key = complicatedTooltips ? "TooltipComplicated" : "TooltipSimple";
+            if (complicatedTooltips)
+            {
+                return this.GetLocalization(key);
+            }
+            return this.GetLocalization(key).WithFormatArgs((faithful ? 5 : MathF.Round(buffValue * 100f, 2)), (faithful ? 1 : buffMinimum * 100));
+        }
+    }
 
     public override bool CanAccessoryBeEquippedWith(Item equippedItem, Item incomingItem, Player player)
     {
@@ -42,6 +59,10 @@ public class MagicCloak : ModItem
 
     public override void UpdateAccessory(Player player, bool hideVisual)
     {
+        if ((player.GetManaCost(player.HeldItem) <= 0 && player.HeldItem.DamageType == DamageClass.Magic) || ItemID.Sets.IsSpaceGun[player.HeldItem.type])
+        {
+            return;
+        }
         if (ModContent.GetInstance<Configs.ServerConfig>().AccessoryBalance == Configs.AccessoryBalance.Faithful)
         {
             if (player.statMana >= (int)((float)player.statManaMax2 * 0.75f))
@@ -59,10 +80,10 @@ public class MagicCloak : ModItem
         }
         else
         {
-            var bonus = Utils.Remap(player.statMana, player.statManaMax2 / 2, player.statManaMax2, 0.03f, 0.07f);
-            if (player.statMana < player.statManaMax2)
+            var bonus = Utils.Remap(player.statMana, player.statManaMax2 / 2, player.statManaMax2, buffMinimum, buffValue + (ManaCloakRework.updatingCloakUpgrade ? ManaCloakRework.cloakUpgradeDamageBonus : 0f));
+            if (player.statMana < player.statManaMax2 / 2)
             {
-                bonus = 0.01f;
+                bonus = buffMinimum;
             }
             player.GetDamage(DamageClass.Magic) += bonus;
         }
@@ -85,6 +106,10 @@ public class ManaCloakRecipe : ModSystem
 
 public class ManaCloakRework : GlobalItem
 {
+    public static bool updatingCloakUpgrade = false;
+
+    public const float cloakUpgradeDamageBonus = 0.05f;
+
     public override void Load()
     {
         On_Player.ApplyEquipFunctional += UndoManaFlowerCloak;
@@ -121,7 +146,7 @@ public class ManaCloakRework : GlobalItem
                 }
             }
         }
-        tooltips.Insert(placementIndex, new(Mod, "MagicCloakTip", Language.GetTextValue("Mods.ThroarbinMageRework.Items.MagicCloak." + (ModContent.GetInstance<Configs.ClientConfig>().ComplicatedTooltips ? "TooltipComplicated" : "TooltipSimple"))));
+        tooltips.Insert(placementIndex, new(Mod, "MagicCloakTip", Language.GetTextValue("Mods.ThroarbinMageRework.Items.MagicCloak." + (ModContent.GetInstance<Configs.ClientConfig>().ComplicatedTooltips ? "TooltipComplicated" : "TooltipSimple"), (MagicCloak.buffValue + cloakUpgradeDamageBonus) * 100f, MagicCloak.buffMinimum * 100f)));
     }
 
     public override void UpdateAccessory(Item item, Player player, bool hideVisual)
@@ -130,6 +155,8 @@ public class ManaCloakRework : GlobalItem
         {
             return;
         }
+        updatingCloakUpgrade = true;
         ModContent.GetModItem(ModContent.ItemType<MagicCloak>()).UpdateAccessory(player, hideVisual);
+        updatingCloakUpgrade = false;
     }
 }

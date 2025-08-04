@@ -43,6 +43,7 @@ public class AristrocratsStaff : ModItem
             .AddIngredient(ItemID.SapphireStaff)
             .AddIngredient(ItemID.RubyStaff)
             .AddIngredient(ItemID.DemoniteBar, 6)
+            .SortAfterFirstRecipesOf(ItemID.RubyStaff)
             .AddTile(TileID.Anvils)
             .Register();
 
@@ -51,6 +52,7 @@ public class AristrocratsStaff : ModItem
             .AddIngredient(ItemID.SapphireStaff)
             .AddIngredient(ItemID.RubyStaff)
             .AddIngredient(ItemID.CrimtaneBar, 6)
+            .SortAfterFirstRecipesOf(ItemID.RubyStaff)
             .AddTile(TileID.Anvils)
             .Register();
     }

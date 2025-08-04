@@ -44,6 +44,7 @@ public class JewelersStaff : ModItem
             .AddIngredient(ItemID.DiamondStaff)
             .AddIngredient(ItemID.DemoniteBar, 6)
             .AddTile(TileID.Anvils)
+            .SortAfterFirstRecipesOf(ItemID.DiamondStaff)
             .Register();
 
         CreateRecipe()
@@ -51,6 +52,7 @@ public class JewelersStaff : ModItem
             .AddIngredient(ItemID.EmeraldStaff)
             .AddIngredient(ItemID.DiamondStaff)
             .AddIngredient(ItemID.CrimtaneBar, 6)
+            .SortAfterFirstRecipesOf(ItemID.DiamondStaff)
             .AddTile(TileID.Anvils)
             .Register();
     }

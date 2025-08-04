@@ -19,7 +19,7 @@ public class FlowerEmblem : ModItem
 
     private readonly List<short> manaFlowers = new() { ItemID.ManaFlower, ItemID.ArcaneFlower, ItemID.MagnetFlower };
 
-    public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(10);
+    public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(15);
 
     public override void AddRecipes()
     {
@@ -36,7 +36,7 @@ public class FlowerEmblem : ModItem
         player.manaFlower = true;
         player.manaMagnet = true;
         player.manaCost -= 0.08f;
-        player.GetDamage(DamageClass.Magic) += 0.10f;
+        player.GetDamage(DamageClass.Magic) += 0.15f;
     }
 }
 

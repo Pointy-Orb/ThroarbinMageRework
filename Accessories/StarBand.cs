@@ -123,7 +123,7 @@ public class StarBandPlayer : ModPlayer
         {
             return;
         }
-        target.GetGlobalNPC<DispenseStars>().starDropCooldown = 400;
+        target.GetGlobalNPC<DispenseStars>().starDropCooldown = 300;
         Item.NewItem(target.GetSource_Loot(), target.position, target.width, target.height, ModContent.ItemType<StarBandStar>());
         for (int i = 0; i < target.width / 3; i++)
         {

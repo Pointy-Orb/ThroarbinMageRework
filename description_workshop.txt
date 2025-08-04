@@ -20,9 +20,11 @@ I decided to make this mod because I also love playing Mage and found the ideas 
     [*]Jungle Armor is now post evil-boss (scales/tissues needed in recipe now)
     [*]Magnet Flower has been removed and replaced with the Flower Emblem, a tinker of the Celestial Emblem and the Mana Flower.
     [*]Gem staffs can now be crafted with either ore of the same tier (ex. gold can make both diamond and ruby staffs)
-    [*]Wand of Sparking is now craftable with 8 wood and 99 torches. Its place in surface chests has been replaced with more aglets.
+    [*]Wand of Sparking is now craftable with 8 wood and 45 torches. Its place in surface chests has been replaced with more aglets.
 [/list]
 
 [b][i]NOTE: There are many times in the original video where Throarbin specifies boosting something by a specific amount (ex. Mana Field gives 10% of mana used back, Magic Glove boosts velocity by 10%). After testing these, I felt that 10% was too weak and so I buffed them to 25%. If you would like to see these statted the exact way they are presented in the video, there is a config option to do such a thing and switch the balance.[/i][/b]
+
+[url=https://github.com/Pointy-Orb/ThroarbinMageRework]Source code repository[/url]
 
 [i]I was not commisioned by Throarbin to make this mod, and it is not officially afilliated with him.[/i]

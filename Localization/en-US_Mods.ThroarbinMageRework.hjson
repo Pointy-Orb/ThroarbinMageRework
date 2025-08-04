@@ -53,8 +53,8 @@ Items: {
 		DisplayName: Magic Cloak
 		TooltipSimple:
 			'''
-			Grants a bonus to magic damage that scales with how much mana is left
-			Reaches bonus minimum at half mana
+			Grants a {0}% bonus to magic damage that decreases along with how much mana is left
+			Reaches bonus minimum of {1}% at half mana
 			'''
 		TooltipComplicated:
 			'''
@@ -108,6 +108,29 @@ Items: {
 			'''
 			{$Mods.ThroarbinMageRework.Items.StarBand.Tooltip}
 			{$ItemTooltip.CelestialMagnet}
+			'''
+	}
+
+	StarEmblem: {
+		DisplayName: Star Emblem
+		Tooltip: ""
+	}
+
+	CelestialBand: {
+		DisplayName: Celestial Band
+		Tooltip:
+			'''
+			{$Mods.ThroarbinMageRework.Items.StarBand.Tooltip}
+			{$ItemTooltip.CelestialEmblem}
+			'''
+	}
+
+	CuffKnuckles: {
+		DisplayName: Celestial Knuckles
+		Tooltip:
+			'''
+			{$ItemTooltip.CelestialCuffs}
+			{$ItemTooltip.FleshKnuckles}
 			'''
 	}
 }
